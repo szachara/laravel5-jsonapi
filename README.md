@@ -573,9 +573,6 @@ If you look inside the `listAction`you'll find a code similar to the one below, 
 
 use App\Model\Database\Employees;
 use App\Model\Database\Orders;
-use Illuminate\Http\Request;
-use NilPortugues\Api\JsonApi\Http\Factory\RequestFactory;
-use NilPortugues\Laravel5\JsonApi\Actions\ListResource;
 use NilPortugues\Laravel5\JsonApi\Controller\JsonApiController;
 
 class EmployeesController extends JsonApiController
