@@ -90,6 +90,7 @@ This is how our `app/Http/routes.php` will look:
 <?php
 Route::group(['namespace' => 'Api'], function() {
     Route::resource('employees', 'EmployeesController');    
+    Route::resource('orders', 'OrdersController');
     Route::get(
         'employees/{employee_id}/orders', [
         'as' => 'employees.orders',
