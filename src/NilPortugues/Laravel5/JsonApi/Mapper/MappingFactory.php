@@ -44,4 +44,24 @@ class MappingFactory extends \NilPortugues\Api\Mapping\MappingFactory
 
         return (!empty(self::$eloquentClasses[$className])) ? self::$eloquentClasses[$className] : parent::getClassProperties($className);
     }
+    
+    /**
+     * @param string $className
+     * @param string $relationName
+     *
+     * @return bool
+     */
+    protected static function hasModelRelation($className, $relationName)
+    {
+        if (\class_exists($className, true)) {
+            $reflection = new ReflectionClass($className);
+            $value = $reflection->newInstanceWithoutConstructor();
+
+            if (\is_subclass_of($value, Model::class, true) && method_exists($value, $relationName)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
